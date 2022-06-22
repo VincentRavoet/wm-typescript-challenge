@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ROUTES } from "../../router";
 
@@ -8,9 +9,15 @@ const navbarStyles = {
     "block border-b border-gray-100 py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-gray-500 md:dark:hover:bg-transparent md:dark:hover:text-white",
   active:
     "block rounded bg-blue-700 py-2 pr-4 pl-3 text-white dark:text-white md:bg-transparent md:p-0 md:text-gray-900 underline dark:md:text-white",
+  hideMenuNav:
+    "hidden",
+  showMenuNav:
+    "block"
 };
 
 export const Navbar = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <nav className="py-6 px-2 dark:bg-gray-900 sm:px-4 md:pt-12">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
@@ -52,6 +59,36 @@ export const Navbar = () => {
             />
           </svg>
         </button>
+        <div className={isNavOpen ? navbarStyles.showMenuNav : navbarStyles.hideMenuNav}>
+          <div
+            className="absolute top-0 right-0 px-8 py-8"
+            onClick={() => setIsNavOpen(false)}
+          >
+            <svg
+              className="h-8 w-8 text-gray-600"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </div>
+          <ul className="flex flex-col items-center justify-between min-h-[250px]">
+            <li className="border-b border-gray-400 my-8 uppercase">
+              <a href="/about">About</a>
+            </li>
+            <li className="border-b border-gray-400 my-8 uppercase">
+              <a href="/portfolio">Portfolio</a>
+            </li>
+            <li className="border-b border-gray-400 my-8 uppercase">
+              <a href="/contact">Contact</a>
+            </li>
+          </ul>
+        </div>
         <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
           <ul className="mt-4 flex flex-col md:mt-0 md:flex-row md:space-x-8 md:text-sm md:font-medium">
             <li>
