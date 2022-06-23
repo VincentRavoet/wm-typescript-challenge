@@ -1,21 +1,21 @@
 import { Card } from "components/card";
+import { useEffect, useState } from "react";
+import { Recipe } from "types/Recipe";
 
-// TODO: REMOVE THIS CODE AND IMPLEMENT A NICE GRID!
 const Homepage = () => {
+
+  let [items, setItems] = useState<Recipe[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/recipes/popular")
+      .then((response) => response.json())
+      .then(({ cocktails }) => setItems(cocktails))
+  }, []);
+
   return (
     <main>
       <div className="mb-4 space-y-3 rounded border border-gray-200 bg-white/25 p-5 text-sm dark:bg-gray-100">
-        <p className="block text-radial">
-          👷🏻‍♂️ Please remove this block and show the
-          <strong>most popular recipes</strong> here.
-        </p>
-        <p className="block">
-          <span>You can use the api endpoint </span>
-          <code className="text-sm font-light">/api/recipes/popular</code>.
-        </p>
-      </div>
-      <div>
-        <Card />
+        {items.map((recipe: Recipe) => <Card recipe={recipe} />)}
       </div>
     </main>
   );
