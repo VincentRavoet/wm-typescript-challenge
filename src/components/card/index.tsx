@@ -1,8 +1,8 @@
 import { Recipe, Ingredient } from "types";
 
 type CardProps = {
-  recipe: Recipe
-}
+  recipe: Recipe;
+};
 
 export const Card = ({ recipe }: CardProps) => {
   return (
@@ -15,19 +15,15 @@ export const Card = ({ recipe }: CardProps) => {
 
         <h3 className="text-lg font-bold">Ingredients</h3>
         <ul className="list-inside list-disc px-1 text-sm">
-          {recipe.ingredients.map((ingredient: Ingredient /* Hier Sander! */) => (
-
+          {recipe.ingredients.map((ingredient: Ingredient /* Sander */) => (
             // Op de property special geeft hij een fout, maar dus ook op unit, amount en ingredient.
-            // Dat zijn allevier weldegelijk properties van Ingredient, maar in Ingredient.ts heb je twee definities van Ingredient. 
-            <li>{ingredient.special}</li>
-
+            // Dat zijn allevier weldegelijk properties van Ingredient, maar in Ingredient.ts heb je twee definities van Ingredient.
+            <li>test</li>
           ))}
         </ul>
 
         <h3 className="text-lg font-bold">Preparation</h3>
-        <div className="text-sm">
-          {recipe.preparation}
-        </div>
+        <div className="text-sm">{recipe.preparation}</div>
       </div>
     </div>
   );
