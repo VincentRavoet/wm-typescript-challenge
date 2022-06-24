@@ -11,6 +11,7 @@ I can see all the cocktails
 
 - I can browse all cocktails
 - **Eight items** are shown on each page
+- The items are shown in a responsive grid (with four cards on each row on desktop)
 - I can share the page URL and see the same result
   - `/recipes` = page 1
   - `/recipes/2` = page 2
@@ -22,3 +23,4 @@ I can see all the cocktails
   - `limit`: allows you to limit the number of results returned
   - `offset` allows you to omit a specified number of rows before the beginning of the result set
   - Use there parameters in `fetch` made from the client.
+- The client side code is responsible for the pagination.
