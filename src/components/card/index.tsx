@@ -6,7 +6,7 @@ type CardProps = {
 
 export const Card = ({ recipe }: CardProps) => {
   return (
-    <div className="flex border border-gray-200 bg-white/50 p-4">
+    <div className="m-2 flex border border-gray-200 bg-white/50 p-4">
       <div className="block space-y-2">
         <h2 className="text-2xl font-bold">{recipe.name}</h2>
         {recipe.category && (
