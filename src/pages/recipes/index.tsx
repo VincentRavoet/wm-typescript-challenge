@@ -49,7 +49,6 @@ const Recipes = () => {
         type="button"
         onClick={() => {
           setOffset(offset * 8 > totalItems ? offset : offset + 1);
-
           handleFetch();
         }}
       >
